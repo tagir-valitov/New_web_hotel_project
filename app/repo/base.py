@@ -10,4 +10,4 @@ class BaseRepo:
         async with async_session_maker() as session:
             query = select(cls.model)
             result =  await session.execute(query)
-            return result.mapping.all()
+            return result.scalars().all()
